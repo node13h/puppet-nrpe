@@ -1,0 +1,14 @@
+{
+  "name": "node13h-nrpe",
+  "version": "0.1.0",
+  "author": "node13h",
+  "summary": "Nagios NRPE management module",
+  "license": "Apache 2.0",
+  "source": "https://github.com/node13h/puppet-nrpe",
+  "project_page": "https://github.com/node13h/puppet-nrpe",
+  "issues_url": "https://github.com/node13h/puppet-nrpe/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
