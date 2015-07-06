@@ -12,6 +12,9 @@ include '::nrpe'
 
 
 ```puppet
+# Monitor / and /var/lib/wordpress mounts, check apt updates
+# and allow access from localhost and 10.0.0.6
+#
 class { '::nrpe':
   allowed_hosts => [ '127.0.0.1', '10.0.0.6' ],
   commands      => {
