@@ -58,6 +58,7 @@ class nrpe (
   augeas { 'nrpe':
     context => "/files${config}",
     changes => "set allowed_hosts ${allowed_host_list}",
+    require => Package[$package_name],
     notify  => Service[$service_name],
   }
 
