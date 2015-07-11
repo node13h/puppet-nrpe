@@ -1,6 +1,6 @@
 {
   "name": "node13h-nrpe",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Sergej Alikov",
   "summary": "Nagios NRPE management module",
   "license": "Apache 2.0",
