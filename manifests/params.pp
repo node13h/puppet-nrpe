@@ -11,7 +11,7 @@ class nrpe::params {
   $default_confdir      = '/etc/nagios/nrpe.d'
   $default_plugindir    = '/usr/lib/nagios/plugins'
 
-  $default_package_name = [ 'nagios-nrpe-server' ]
+  $default_package_name = 'nagios-nrpe-server'
   $default_service_name = 'nagios-nrpe-server'
 
   $default_commands     = {

@@ -38,15 +38,15 @@ class nrpe (
   validate_string($service_ensure)
   validate_bool($service_enable)
   validate_absolute_path($config)
-  validate_array($package_name)
+  validate_string($package_name)
   validate_string($service_name)
   validate_absolute_path($confdir)
   validate_absolute_path($plugindir)
 
+  validate_hash($commands)
 
   package { $package_name:
     ensure => $package_ensure,
-    before => Service[$service_name],
   }
 
   service { $service_name:
@@ -60,6 +60,7 @@ class nrpe (
     context => "/files${config}",
     changes => "set allowed_hosts ${allowed_host_list}",
     notify  => Service[$service_name],
+    require => Package[$package_name],
   }
 
   create_resources(nrpe::command, $commands)

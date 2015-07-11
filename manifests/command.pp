@@ -29,7 +29,8 @@ define nrpe::command (
   file { "${::nrpe::confdir}/${name}.cfg":
     ensure  => $ensure,
     content => "command[${name}]=${::nrpe::plugindir}/${full_command}\n",
-    notify  => Service[$::nrpe::service_name]
+    notify  => Service[$::nrpe::service_name],
+    require => Package[$::nrpe::package_name],
   }
 
 }
