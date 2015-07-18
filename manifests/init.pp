@@ -18,18 +18,20 @@
 #
 
 class nrpe (
-  $allowed_hosts  = $nrpe::params::allowed_hosts,
-  $package_ensure = $nrpe::params::package_ensure,
-  $service_ensure = $nrpe::params::service_ensure,
-  $service_enable = $nrpe::params::service_enable,
+  $allowed_hosts   = $nrpe::params::allowed_hosts,
+  $package_ensure  = $nrpe::params::package_ensure,
+  $service_ensure  = $nrpe::params::service_ensure,
+  $service_enable  = $nrpe::params::service_enable,
 
-  $config         = $nrpe::params::config,
-  $confdir        = $nrpe::params::confdir,
-  $plugindir      = $nrpe::params::plugindir,
-  $package_name   = $nrpe::params::package_name,
-  $service_name   = $nrpe::params::service_name,
+  $config          = $nrpe::params::config,
+  $confdir         = $nrpe::params::confdir,
+  $plugindir       = $nrpe::params::plugindir,
+  $package_name    = $nrpe::params::package_name,
+  $service_name    = $nrpe::params::service_name,
 
-  $commands       = $nrpe::params::commands,
+  $plugin_packages = $nrpe::params::plugin_packages,
+
+  $commands        = $nrpe::params::commands,
 
 ) inherits nrpe::params {
   
@@ -63,6 +65,10 @@ class nrpe (
     require => Package[$package_name],
   }
 
+  package { $plugin_packages:
+    ensure => installed,
+  }
+  
   create_resources(nrpe::command, $commands)
 
 }

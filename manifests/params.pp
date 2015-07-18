@@ -29,6 +29,8 @@ class nrpe::params {
       $package_name = $default_package_name
       $service_name = $default_service_name
 
+      $plugin_packages = [ 'nagios-plugins' ]
+
       $_debian_commands = {
         check_apt => {
           command => 'check_apt',
